@@ -34,7 +34,7 @@ describe('Foreing exchange rate', () => {
             done();
         });
     });
-    it('POST calc/fx - response body', (done) => {
+    it('POST calc/fx - response', (done) => {
         request.post('calc/fx').send({
             ccy1: 'BTC',
             ccy2: 'EUR'
