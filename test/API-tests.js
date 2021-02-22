@@ -23,3 +23,24 @@ describe('Platform status', () => {
         });
     });
 });
+
+describe('Foreing exchange rate', () => {
+    it('POST calc/fx - 200', (done) => {
+        request.post('calc/fx').send({
+            ccy1: 'BTC',
+            ccy2: 'EUR'
+        }).end((err, res) => {
+            chai.expect(res.statusCode).to.equal(200);
+            done();
+        });
+    });
+    it('POST calc/fx - 500', (done) => {
+        request.post('calc/fx').send({
+            ccy1: 'BT',
+            ccy2: 'EUR'
+        }).end((err, res) => {
+            chai.expect(res.statusCode).to.equal(500);
+            done();
+        });
+    });
+});
